@@ -11,9 +11,9 @@ namespace cloud_firestore_with_net.Repositories
 
         public FirestoreRepository(string CollectionName)
         {
-            string filePath = "/Users/Username/Downloads/file-name.json";
+            string filePath = "/Users/{Username}/Downloads/{file-name}.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", filePath);
-            firestoreDb = FirestoreDb.Create("database-name");
+            firestoreDb = FirestoreDb.Create("{database-name}");
             this.CollectionName = CollectionName;
         }
 

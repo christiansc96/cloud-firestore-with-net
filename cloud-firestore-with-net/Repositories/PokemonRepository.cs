@@ -4,7 +4,7 @@ namespace cloud_firestore_with_net.Repositories
 {
     public class PokemonRepository : IFirestoreRepository<Pokemon>
     {
-        private readonly string CollectionName = "collection-name";
+        private readonly string CollectionName = "{collection-name}";
         private readonly FirestoreRepository firestoreRepository;
 
         public PokemonRepository()
