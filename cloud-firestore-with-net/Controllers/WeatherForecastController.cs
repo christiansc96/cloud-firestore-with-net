@@ -1,9 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace cloud_firestore_with_net.Controllers
 {
@@ -11,29 +7,50 @@ namespace cloud_firestore_with_net.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
-        {
-            _logger = logger;
-        }
-
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public IActionResult Get()
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            var data = new
             {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+                title = "Cloud Firestore and .NET, is this possible?",
+                description = "Implementing Firebase Cloud Firestore in an API in .NET 🤩",
+                speaker = "Christian Sánchez",
+                bio = "I am Software Engineer, Auth0 Ambassador and Postman Supernova",
+                codeExample = "https://github.com/christiansc96/cloud-firestore-with-net",
+                communities = new List<object>
+                {
+                    new
+                    {
+                        DevTeam504 = "Co-Founder & Organizer",
+                        FlutterHonduras = "Co-Founder y Co-Organizer",
+                        googleDSCUNAHVS = "Google DSC Lead"
+                    }
+                },
+                socialMedia = new
+                {
+                    twitter = new
+                    {
+                        user = "@christian_sc96",
+                        profile = "https://twitter.com/christian_sc96"
+                    },
+                    github = new
+                    {
+                        user = "@christiansc96",
+                        profile = "https://github.com/christiansc96"
+                    },
+                    instagram = new
+                    {
+                        user = "@christian_sc96",
+                        profile = "https://www.instagram.com/christian_sc96/"
+                    },
+                    linkedin = new
+                    {
+                        user = "Christian Sánchez",
+                        profile = "https://www.linkedin.com/in/christiandavidsanchez/"
+                    }
+                }
+            };
+            return Ok(data);
         }
     }
 }

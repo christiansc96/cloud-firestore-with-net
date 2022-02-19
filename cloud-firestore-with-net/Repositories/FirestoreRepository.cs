@@ -1,8 +1,6 @@
 ﻿using cloud_firestore_with_net.Models;
 using Google.Cloud.Firestore;
-using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 
 namespace cloud_firestore_with_net.Repositories
 {
