@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cloud-firestore-with-net", "cloud-firestore-with-net\cloud-firestore-with-net.csproj", "{A21D4204-168F-480D-9502-1B00E8B64C2C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A21D4204-168F-480D-9502-1B00E8B64C2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A21D4204-168F-480D-9502-1B00E8B64C2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A21D4204-168F-480D-9502-1B00E8B64C2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A21D4204-168F-480D-9502-1B00E8B64C2C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {97873ED5-CB26-49D7-A3E9-B26DF6608AB3}
+	EndGlobalSection
+EndGlobal
