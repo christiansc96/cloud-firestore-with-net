@@ -15,13 +15,61 @@ namespace cloud_firestore_with_net.Controllers
             pokemonRepository = _pokemonRepository;
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetSpeaker(string id)
+        [HttpGet]
+        public IActionResult GetPokemons()
         {
-            return Ok(pokemonRepository.Get(new Pokemon()
+            return Ok(pokemonRepository.GetAll());
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetPokemon(string id)
+        {
+            Pokemon pokemonFromFirebase = pokemonRepository.Get(new Pokemon()
             {
                 Id = id
-            }));
+            });
+
+            if (pokemonFromFirebase == null)
+                return NotFound();
+            return Ok(pokemonFromFirebase);
+        }
+
+        [HttpPost]
+        public IActionResult CreatePokemon(Pokemon pokemon)
+        {
+            Pokemon newPokemon = pokemonRepository.Add(pokemon);
+            if (newPokemon == null)
+                return BadRequest();
+            return Ok(newPokemon);
+        }
+
+        [HttpPut]
+        public IActionResult UpdatePokemon(Pokemon pokemon)
+        {
+            Pokemon pokemonFromFirebase = pokemonRepository.Get(new Pokemon()
+            {
+                Id = pokemon.Id
+            });
+
+            if (pokemonFromFirebase == null)
+                return NotFound();
+
+            if (pokemonRepository.Update(pokemon))
+                return Ok();
+            return BadRequest();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeletePokemon(string id)
+        {
+            if (pokemonRepository.Delete(new Pokemon()
+            {
+                Id = id
+            }))
+            {
+                return Ok();
+            }
+            return BadRequest();
         }
     }
 }
